@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <title>Login</title>
+    <style>
+        .error-message {
+            color: red;
+        }
+    </style>
+</head>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<body>
+<div class="container w-25">
+    <form action="#" th:action="@{/auth/login}" th:object="${request}" method="post">
+    <div class="form-group">
+        <label for="email">Email address</label>
+        <input type="email" th:field="*{email}" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email">
+        <p class="error-message" th:if="${#fields.hasErrors('email')}" th:errors="*{email}">Email Error</p>
+    </div>
+    <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" th:field="*{password}" class="form-control" id="password" placeholder="Password">
+        <input type="checkbox" onclick="myFunction()"> Show Password
+        <p class="error-message" th:if="${#fields.hasErrors('password')}" th:errors="*{password}">Password error</p>
+    </div>
+    <button type="submit" class="btn btn-primary">Login</button>
+    </form>
+    <p th:text="${successMessage}" th:if="${successMessage != null}"></p>
+</div>
+<script>
+    function myFunction() {
+        var x = document.getElementById("password");
+        if (x.type === "password") {
+            x.type = "text";
+        } else {
+            x.type = "password";
+        }
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,17 @@
+<footer th:fragment = "footer" class="d-flex flex-wrap py-3 my-auto justify-content-center border-top fixed-bottom bg-light">
+  <p class="col-md-4 mb-0 text-body-secondary">© 2024 Store</p>
+    <div class="row" th:if="${#authentication.principal != null}">
+      <div class="col">
+        <p><span th:text="${#authentication.principal.username}"></span></p>
+      </div>
+      <div class="col">
+        <p><span th:each="authority : ${#authentication.principal.authorities}">
+                <span th:text="${authority.authority}">Role</span>
+                </span>
+        </p>
+      </div>
+    </div>
+  <ul class="nav col-md-4 justify-content-end">
+    <li class="nav-item"><a th:href="'/home/about'" class="nav-link px-2 text-body-secondary">About</a></li>
+  </ul>
+</footer>

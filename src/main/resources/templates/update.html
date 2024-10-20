@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="">
+<head>
+  <title>Products</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+</head>
+<body>
+<div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+  <header th:insert="~{Sections/header :: header}"></header>
+
+  <main role="main" class="inner cover my-5">
+    <div class="container-lg my-5">
+      <div class="table">
+        <div class="table-wrapper">
+          <div class="table-title">
+            <div class="row">
+              <div class="col-sm-8"><h2>Product <b>update</b></h2></div>
+            </div>
+          </div>
+          <form th:action="'/products/update/'+${product.getId()}" method="post">
+            <div class="form-group">
+              <label for="article">Article</label>
+              <input type="number" class="form-control" id="article" name="article"
+                     placeholder="Article" th:value="${product.getArticle()()}" required/>
+            </div>
+            <div class="form-group">
+              <label for="name">Name</label>
+              <input type="text" class="form-control" id="name" name="name"
+                     placeholder="Name" th:value="${product.getName()}" required>
+            </div>
+            <div class="form-group">
+              <label for="category">Category</label>
+              <input type="text" class="form-control" id="category" name="category"
+                     placeholder="Category" th:value="${product.getCategory()}">
+            </div>
+            <div class="form-group">
+              <label for="brand">Brand</label>
+              <input type="text" class="form-control" id="brand" name="brand"
+                     placeholder="Brand" th:value="${product.getBrand()}">
+            </div>
+            <div class="form-group">
+              <label for="price">Price</label>
+              <input type="number" class="form-control" id="price" name="price" step="0.01"
+                     placeholder="Price" th:value="${product.getPrice()}" >
+            </div>
+            <div class="form-group">
+              <label for="quantity">Quantity</label>
+              <input type="number" class="form-control" id="quantity" name="quantity"
+                     placeholder="Quantity" th:value="${product.getQuantity()}" required>
+            </div>
+            <div class="form-group">
+              <label for="pack">Pack</label>
+              <input type="number" class="form-control" id="pack" name="pack"
+                     placeholder="Pack" th:value="${product.getPack()()}">
+            </div>
+            <div class="form-group">
+              <label for="description">Description</label>
+              <textarea class="form-control" id="description" name="description"
+                        placeholder = "Description" rows="3" th:text="${product.getDescription()}"></textarea>
+            </div>
+            <div class="form-group">
+              <label for="imageUrl">ImageUrl</label>
+              <input type="text" class="form-control" id="imageUrl" name="imageUrl"
+                     placeholder="ImageUrl" th:value="${product.getImageUrl()}">
+            </div>
+            <input type="submit" class="btn btn-secondary" value="Update product"/>
+          </form>
+        </div>
+      </div>
+    </div>
+  </main>
+  <footer th:insert="~{Sections/footer :: footer}"></footer>
+</div>
+</body>
+</html>

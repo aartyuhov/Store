@@ -1,0 +1,46 @@
+<header class="py-3 mb-auto border-bottom fixed-top bg-light" xmlns:sec="http://www.w3.org/1999/xhtml">
+  <div class="container">
+    <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start ">
+      <a href="/home/" class="d-flex align-items-center mb-2 mb-lg-0 text-dark text-decoration-none">
+        <img class="bi me-2" width="200" height="50" alt="Phoenix Contact Logo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/Phoenix_Contact_Logo.svg/744px-Phoenix_Contact_Logo.svg.png?20150315074820"/>
+      </a>
+      <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+        <li>
+          <div class="dropdown">
+            <button class="btn btn-light dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Store
+            </button>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#">View products</a></li>
+              <li><a class="dropdown-item" href="/products/upload">Upload products</a></li>
+              <li><a class="dropdown-item" href="#">Download products</a></li>
+            </ul>
+          </div>
+        </li>
+<!--        <li th:if="${#authentication.getAuthorities().iterator().next().authority == 'ADMIN'}"><a th:href="'/users/'" class="btn btn-light" role="button">Users</a></li>-->
+        <li><a th:href="'/users/'" class="btn btn-light" role="button">Users</a></li>
+      </ul>
+      <form th:action="@{/products/search}" method="get">
+        <div class="row">
+          <div class="col-8 col-lg-auto mb-2">
+            <input type="search"  size="20" name="query" class="form-control"
+                   placeholder="Search by article" aria-label="Search"
+                   onfocus="this.style.boxShadow='0 0 5px 2px rgba(86, 90, 94, 0.3)';"
+                   style="box-shadow: none; border-color: darkgrey" onblur="this.style.boxShadow='none';">
+          </div>
+          <div class="col-4 col-lg-auto mb-2">
+            <button type="submit" class="btn btn-outline-secondary">Search</button>
+          </div>
+        </div>
+    </form>
+      <form th:action="@{/auth/logout}" method="get">
+        <div class="row">
+          <div class="col-4 col-lg-auto mb-2 ms-4">
+            <button type="submit" class="btn btn-outline-secondary">Logout</button>
+          </div>
+        </div>
+      </form>
+
+    </div>
+  </div>
+</header>
