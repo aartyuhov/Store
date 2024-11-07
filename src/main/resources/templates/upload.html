@@ -16,10 +16,10 @@
   <header th:insert="~{Sections/header :: header}"></header>
   <main role="main" class="inner cover" style="margin-top: 80px">
     <div class="container">
-      <form action="#" th:action="@{/products/upload}" method="post">
+      <form action="#" th:action="@{/products/upload}" method="post" enctype="multipart/form-data">
         <div class="mb-3">
           <label for="formFile" class="form-label">Upload products</label>
-          <input class="form-control" type="file" id="formFile" name="filePath" required accept=".xls,.xlsx">
+          <input class="form-control" type="file" id="formFile" name="fileName" required accept=".xls,.xlsx">
         </div>
         <div class="text-center">
           <button type="submit" class="btn btn-outline-secondary">Upload</button>

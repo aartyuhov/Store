@@ -11,14 +11,14 @@
               Store
             </button>
             <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="#">View products</a></li>
+              <li><a class="dropdown-item" href="/products/">View products</a></li>
               <li><a class="dropdown-item" href="/products/upload">Upload products</a></li>
-              <li><a class="dropdown-item" href="#">Download products</a></li>
+              <li><a class="dropdown-item" href="/products/download">Download products</a></li>
             </ul>
           </div>
         </li>
-<!--        <li th:if="${#authentication.getAuthorities().iterator().next().authority == 'ADMIN'}"><a th:href="'/users/'" class="btn btn-light" role="button">Users</a></li>-->
-        <li><a th:href="'/users/'" class="btn btn-light" role="button">Users</a></li>
+        <li th:if="${#authentication.getAuthorities().iterator().next().authority == 'ADMIN'}"><a th:href="'/users/'" class="btn btn-light" role="button">Users</a></li>
+<!--        <li><a th:href="'/users/'" class="btn btn-light" role="button">Users</a></li>-->
       </ul>
       <form th:action="@{/products/search}" method="get">
         <div class="row">
